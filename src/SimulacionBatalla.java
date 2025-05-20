@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 // Clase base: Personaje
 class Personaje {
     String nombre;
@@ -48,12 +47,12 @@ class Personaje {
     }
     // Método para mostrar estadísticas del personaje
     public void mostrarEstadisticas() {
-        System.out.println("--- Estadísticas de " + nombre + " ---");
+        System.out.println("\\n--- Estadísticas de " + nombre + " ---");
         System.out.println("Fuerza: " + fuerza);
         System.out.println("Vida:  " + vida);
         System.out.println("Velocidad: " + velocidad);
         System.out.println("Resistencia: " + estamina);
-        System.out.println("-----------------------------------");
+        System.out.println("-----------------------------------\n");
     }
 
     // Método para recuperarse y aumentar la resistencia
@@ -129,7 +128,7 @@ class Villano extends Personaje {
         else{
          double critico = Math.abs(Math.sqrt((estamina/fuerza)*vida));
          estamina -= 150; // Reduce la resistencia al usar el ataque especial
-         System.out.println(this.nombre + " realiza un ataque especial "+nombre+" a " + oponente.nombre + " con " + critico + " puntos de daño.");
+         System.out.println(this.nombre + " realiza un ataque especial "+ nombre +" a " + oponente.nombre + " con " + critico + " puntos de daño.");
             oponente.vida -= critico;
             if (oponente.vida < 0) oponente.vida = 0;
             System.out.println(oponente.nombre + " ahora tiene " + oponente.vida + " puntos de vida.");
@@ -148,7 +147,7 @@ public class SimulacionBatalla {
 
         // Crear superhéroe y villano
         SuperHeroe heroe = new SuperHeroe("Goku", 4000, 2000, 200,10000);
-        Villano villano = new Villano("saitama", 10000, 1500, 200,10000);
+        Villano villano = new Villano("Saitama", 10000, 1500, 200,10000);
 
         // Mostrar estadísticas iniciales
         heroe.mostrarEstadisticas();
@@ -158,14 +157,14 @@ public class SimulacionBatalla {
         int opcion;
         do {
             System.out.println("Elige una acción:");
-            System.out.println("1. El héroe usa ataqueBasico al villano");
-            System.out.println("2. El héroe usa ataqueActivo al villano");
-            System.out.println("3. El héroe usa su ataque especial");
-            System.out.println("4. El villano usa ataqueBasico al héroe");
-            System.out.println("5. El villano usa ataqueActivo al héroe");
-            System.out.println("6. El villano hace trampa al héroe");
-            System.out.println("7. El héroe se recupera");
-            System.out.println("8. El villano se recupera");
+            System.out.println("1. Goku usa ataqueBasico contra Saitama");
+            System.out.println("2. Goku usa ataqueActivo contra Saitama");
+            System.out.println("3. Goku usa su ataque especial");
+            System.out.println("4. Saitama usa ataqueBasico contra Goku");
+            System.out.println("5. Saitama usa ataqueActivo contra Goku");
+            System.out.println("6. Saitama hace trampa ");
+            System.out.println("7. Goku se recupera");
+            System.out.println("8. Saitama se recupera");
             System.out.println("9. Mostrar estadísticas");
             System.out.println("0. Terminar batalla");
 
@@ -211,11 +210,11 @@ public class SimulacionBatalla {
 
         // Si la resistencia de alguno llega a 0, la batalla termina
         if (heroe.vida == 0) {
-            System.out.println(heroe.nombre + " ha sido derrotado. ¡El villano gana!");
+            System.out.println(heroe.nombre + " ha sido derrotado. ¡Saitama gana!");
         } else if (villano.vida == 0) {
-            System.out.println(villano.nombre + " ha sido derrotado. ¡El héroe gana!");
+            System.out.println(villano.nombre + " ha sido derrotado. ¡Goku gana!");
         }else if (heroe.vida != 0 && villano.vida != 0){
-            System.out.println("El villano y el heroe se han retirado para tener un proximo encuentro.");
+            System.out.println("Saitama se fue por un descuento y Goku se ha retirado para donde las putas para tener un proximo encuentro.");
         }
 
         scanner.close();
